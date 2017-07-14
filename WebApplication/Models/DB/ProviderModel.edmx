@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EDL_CONFIG_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EDL_DataProviderEnrollmentConfig">
+          <Key>
+            <PropertyRef Name="ProviderEnrollmentConfigId" />
+          </Key>
+          <Property Name="ProviderEnrollmentConfigId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProviderName" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DataLakeLandingFilePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FileSchedule" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="NumberofFilesExpected" Type="int" />
+          <Property Name="NumberofFilesPlaced" Type="int" />
+          <Property Name="ProviderCredentials" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="40" />
+          <Property Name="UpdateUser" Type="nvarchar" MaxLength="40" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <Function Name="EDL_GetInterfaceParameters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InterfaceName" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="EDL_CONFIG_DBModelStoreContainer">
+          <EntitySet Name="EDL_DataProviderEnrollmentConfig" EntityType="Self.EDL_DataProviderEnrollmentConfig" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EDL_CONFIG_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EDL_DataProviderEnrollmentConfig">
+          <Key>
+            <PropertyRef Name="ProviderEnrollmentConfigId" />
+          </Key>
+          <Property Name="ProviderEnrollmentConfigId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataLakeLandingFilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileSchedule" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberofFilesExpected" Type="Int32" />
+          <Property Name="NumberofFilesPlaced" Type="Int32" />
+          <Property Name="ProviderCredentials" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUser" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateUser" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="EDL_CONFIG_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EDL_DataProviderEnrollmentConfig" EntityType="Self.EDL_DataProviderEnrollmentConfig" />
+          <FunctionImport Name="EDL_GetInterfaceParameters">
+            <Parameter Name="InterfaceName" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EDL_CONFIG_DBModelStoreContainer" CdmEntityContainer="EDL_CONFIG_DBEntities">
+          <EntitySetMapping Name="EDL_DataProviderEnrollmentConfig">
+            <EntityTypeMapping TypeName="EDL_CONFIG_DBModel.EDL_DataProviderEnrollmentConfig">
+              <MappingFragment StoreEntitySet="EDL_DataProviderEnrollmentConfig">
+                <ScalarProperty Name="ProviderEnrollmentConfigId" ColumnName="ProviderEnrollmentConfigId" />
+                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+                <ScalarProperty Name="DataLakeLandingFilePath" ColumnName="DataLakeLandingFilePath" />
+                <ScalarProperty Name="FileSchedule" ColumnName="FileSchedule" />
+                <ScalarProperty Name="NumberofFilesExpected" ColumnName="NumberofFilesExpected" />
+                <ScalarProperty Name="NumberofFilesPlaced" ColumnName="NumberofFilesPlaced" />
+                <ScalarProperty Name="ProviderCredentials" ColumnName="ProviderCredentials" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EDL_GetInterfaceParameters" FunctionName="EDL_CONFIG_DBModel.Store.EDL_GetInterfaceParameters" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

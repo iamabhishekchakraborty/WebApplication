@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>*@
+<br />
+Not enrolled yet? @Html.ActionLink("Signup Now!", "SignUp", "Provider")
+
+<div id="divUserListContainer">
+    @Html.Action("ManageUserPartial", "Home")
+</div>
+
+<div class="col-md-offset-2 col-md-10" style="text-align:right">
+    <p>@Html.ActionLink("Export to Excel!", "Download", "Home")</p>
+</div>

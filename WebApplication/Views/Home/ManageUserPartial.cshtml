@@ -1,0 +1,37 @@
+﻿@model WebApplication.Models.ViewModel.ProviderDataView  
+
+
+<div>
+    <h1>List of Providers Enrolled...</h1>
+
+    <table class="table table-striped table-condensed table-hover">
+        <thead>
+            <tr>
+                @*<th></th>*@
+                <th>System Name</th>
+                <th>Data Lake Landing Path</th>
+                <th>File schedule</th>
+                <th>No of files expected</th>
+                <th>No of files placed</th>
+                <th>Credentials required for connecting to Source System/Target system</th>
+                @*<th></th>
+                <th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model.ProviderUserProfile)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(m => i.ProviderName)</td>
+                    <td> @Html.DisplayFor(m => i.DataLakeLandingFilePath)</td>
+                    <td> @Html.DisplayFor(m => i.FileSchedule)</td>
+                    <td> @Html.DisplayFor(m => i.NumberofFilesExpected)</td>
+                    <td> @Html.DisplayFor(m => i.NumberofFilesPlaced)</td>
+                    <td> @Html.DisplayFor(m => i.ProviderCredentials)</td>                    
+                    @*<td><a href="javascript:void(0)" class="lnkEdit">Edit</a></td>
+                    <td><a href="javascript:void(0)" class="lnkDelete">Delete</a></td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
